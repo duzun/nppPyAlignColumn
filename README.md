@@ -10,4 +10,17 @@ Note: [`Python Script for Notepad++`](http://npppythonscript.sourceforge.net/dow
   3. From top menu choose: `Plugins` -> `Python Script` -> `Scripts` -> `AlignColumns`
   4. In the prompt box input the desired delimited and hit the `Return` key 
    
+## Setup a keyboard shortcut
 
+It is a good idea to assign a keyboard shortcut to this script.
+Before assigning a shortcut you need to add this script to the menu:
+
+  1. From menu open `Plugins` -> `Python Script` -> `Configuration`
+  2. Select `AlignColumns.py` from list of `User Scripts`
+  3. Click `Add` from above `Menu item`
+  4. Click `Ok` to close the dialog
+  5. Restart Notepad++
+  6. Open `Settings` -> `Shrotcut mapper...` -> `Plugin commands`
+  7. Select `AlignColumns` from the list and click `Modify`
+  8. Choose a shortcut (I preffer `Ctrl` + `Alt` + `A`)
+  9. Press `Ok`, `Close`, and you are done!
