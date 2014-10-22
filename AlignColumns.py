@@ -1,26 +1,37 @@
 '''
-        Align text columns by given column delimiter.
+    Align text columns by given column delimiter.
 
-        A Script for Notepad++ Python Script Plugin.
+    A Script for Notepad++ Python Script Plugin.
 
-        @author Dumitru Uzun (DUzun.Me)
-        @license MIT
-        @version 1.0.0
+    @author Dumitru Uzun (DUzun.Me)
+    @license MIT
+    @version 1.0.1
 '''
 
 if not 'alignColumnDelimiter' in globals():
-    alignColumnDelimiter = '='
+    alignColumnDelimiter = u'='
 
 delim = notepad.prompt('Input the column delimiter:', 'Align Columns delimiter string', alignColumnDelimiter);
 
 if delim != None:
     alignColumnDelimiter = delim
 
+def utf8len(s):
+    r = 0;
+    for c in s: r += (ord(c) & 0xC0) != 0xC0; ''' Don't count sync bytes '''
+    return r;
+# end utf8len()
 
 def alignColumns():
     (startLine, endLine) = editor.getUserLineSelection();
     caretPos = editor.getCurrentPos();
-    modified = 0
+    modified = 0;
+
+    if editor.getCodePage() == 65001:
+        charLen = utf8len;
+    else:
+        charLen = len;
+    # endif
 
     ''' Compute the column widths from all the selected lines '''
     colWidths = []; # colWidths
@@ -38,16 +49,18 @@ def alignColumns():
         cols = line.split(delim);
         lc = len(cols);
         if lc < 2: continue; ''' Ignore lines that do not contain delimiter '''
-        i = 0;
-        for c in cols:
-            l = len(c);
+        for i in range(0,lc):
+            l = charLen(cols[i]);
             if i >= len(colWidths):
                 colWidths.append(l);
             elif l > colWidths[i]:
                 colWidths[i] = l;
-            i += 1;
         # endfor
     # endfor
+
+    c = [];
+    for i in colWidths: c.append(str(i));
+    v = ":".join(c);
 
     ''' Align the columns '''
     for ln in range(startLine, endLine+1):
@@ -57,9 +70,10 @@ def alignColumns():
         if lc < 2: continue; ''' Ignore lines that do not contain delimiter '''
         chg = 0;
         for i in range(0,lc-1):
-            dif = colWidths[i] - len(cols[i]);
+            c = cols[i];
+            dif = colWidths[i] - charLen(c);
             if dif > 0:
-                cols[i] += ' ' * dif;
+                cols[i] = c + " " * dif;
                 chg = 1;
             # endif
         # endfor
