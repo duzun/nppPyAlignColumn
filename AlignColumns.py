@@ -1,7 +1,7 @@
 '''
         Align text columns by given column delimiter.
 
-        Script for Notepad++ Python Script Plugin.
+        A Script for Notepad++ Python Script Plugin.
 
         @author Dumitru Uzun (DUzun.Me)
         @license MIT
@@ -11,7 +11,7 @@
 if not 'alignColumnDelimiter' in globals():
     alignColumnDelimiter = '='
 
-delim = notepad.prompt('Give a separator string:', 'Align Columns separator String', alignColumnDelimiter);
+delim = notepad.prompt('Input the column delimiter:', 'Align Columns delimiter string', alignColumnDelimiter);
 
 if delim != None:
     alignColumnDelimiter = delim
