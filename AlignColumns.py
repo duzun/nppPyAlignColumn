@@ -22,7 +22,13 @@ def utf8len(s):
     return r;
 # end utf8len()
 
-def alignColumns():
+def alignColumns(right = 0, trim = 0, sticky = 0):
+    if sticky:
+        trim = 1;
+        right = 0;
+    # endif
+
+
     (startLine, endLine) = editor.getUserLineSelection();
     caretPos = editor.getCurrentPos();
     modified = 0;
@@ -50,7 +56,9 @@ def alignColumns():
         lc = len(cols);
         if lc < 2: continue; ''' Ignore lines that do not contain delimiter '''
         for i in range(0,lc):
-            l = charLen(cols[i]);
+            c = cols[i];
+            if trim: c = c.strip();
+            l = charLen(c);
             if i >= len(colWidths):
                 colWidths.append(l);
             elif l > colWidths[i]:
@@ -69,12 +77,33 @@ def alignColumns():
         lc = len(cols);
         if lc < 2: continue; ''' Ignore lines that do not contain delimiter '''
         chg = 0;
+        memc = "";
         for i in range(0,lc-1):
             c = cols[i];
+            if trim:
+                c = c.strip();
+                if charLen(c) < charLen(cols[i]):
+                    cols[i] = c;
+                    chg = 1;
+                # endif
+            # endif
+            if(charLen(memc)):
+                cols[i] = memc + c;
+                memc = "";
+                chg = 1;
+            # endif
             dif = colWidths[i] - charLen(c);
             if dif > 0:
-                cols[i] = c + " " * dif;
-                chg = 1;
+                if sticky:
+                    memc = " " * dif;
+                else:
+                    if right:
+                        cols[i] = " " * dif + c;
+                    else:
+                        cols[i] = c + " " * dif;
+                    # endif
+                    chg = 1;
+                # endif
             # endif
         # endfor
         if chg:
@@ -94,7 +123,7 @@ if delim != None:
     ''' First we'll start an undo action, then Ctrl-Z will undo the actions of the whole script '''
     editor.beginUndoAction();
 
-    alignColumns();
+    alignColumns(right = 0, trim = 0);
 
     ''' End the undo action, so Ctrl-Z will undo the above two actions '''
     editor.endUndoAction();
