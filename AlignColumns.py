@@ -5,7 +5,7 @@
 
     @author Dumitru Uzun (DUzun.Me)
     @license MIT
-    @version 1.0.1
+    @version 1.0.2
 '''
 
 if not 'alignColumnDelimiter' in globals():
