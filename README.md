@@ -1,6 +1,41 @@
 Align Column Python Script for Notepad++
 ================
 
+## Example
+
+Original text:
+
+    some text,20,Number,
+    and more text,False,Boolean,
+    text,0xFF,Number | String,
+    just another line of text,8,Array,
+
+
+alignColumns(right = 0):
+
+    some text                ,20   ,Number         ,
+    and more text            ,False,Boolean        ,
+    text                     ,0xFF ,Number | String,
+    just another line of text,8    ,Array          ,
+
+
+alignColumns(right = 1):
+
+                    some text,   20,         Number,
+                and more text,False,        Boolean,
+                         text, 0xFF,Number | String,
+    just another line of text,    8,          Array,
+
+
+
+alignColumns(sticky = 1):
+
+    some text,                20,   Number,
+    and more text,            False,Boolean,
+    text,                     0xFF, Number | String,
+    just another line of text,8,    Array,
+
+
 ## Usage
 
 Note: [`Python Script for Notepad++`](http://npppythonscript.sourceforge.net/download.shtml) Plugin is required.
@@ -8,8 +43,8 @@ Note: [`Python Script for Notepad++`](http://npppythonscript.sourceforge.net/dow
   1. Copy `AlignColumns.py` to `c:\path\to\npp\plugins\Config\PythonScript\scripts\`
   2. In Notepad++ select the lines you want to align
   3. From top menu choose: `Plugins` -> `Python Script` -> `Scripts` -> `AlignColumns`
-  4. In the prompt box input the desired delimited and hit the `Return` key 
-   
+  4. In the prompt box input the desired delimited and hit the `Return` key
+
 ## Setup a keyboard shortcut
 
 It is a good idea to assign a keyboard shortcut to this script.
