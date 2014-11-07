@@ -59,3 +59,8 @@ Before assigning a shortcut you need to add this script to the menu:
   7. Select `AlignColumns` from the list and click `Modify`
   8. Choose a shortcut (I preffer `Ctrl` + `Alt` + `A`)
   9. Press `Ok`, `Close`, and you are done!
+
+
+# ToDo:
+  1. Add menu entries for each alignment mode
+  2. Add more alignment modes
