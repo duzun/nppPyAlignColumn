@@ -4,7 +4,7 @@
     A Script for Notepad++ Python Script Plugin.
 
     @author Dumitru Uzun (DUzun.Me)
-    @license MIT
+    @license ☺ (http://licence.visualidiot.com/)
     @version 1.0.2
 '''
 
