@@ -42,8 +42,9 @@ Note: [`Python Script for Notepad++`](http://npppythonscript.sourceforge.net/dow
 
   1. Copy `AlignColumns.py` to `c:\path\to\npp\plugins\Config\PythonScript\scripts\`
   2. In Notepad++ select the lines you want to align
-  3. From top menu choose: `Plugins` -> `Python Script` -> `Scripts` -> `AlignColumns`
-  4. In the prompt box input the desired delimited and hit the `Return` key
+  3. Restart Notepad++
+  4. From top menu choose: `Plugins` -> `Python Script` -> `Scripts` -> `AlignColumns`
+  5. In the prompt box input the desired delimited and hit the `Return` key
 
 ## Setup a keyboard shortcut
 
