@@ -40,7 +40,7 @@ alignColumns(sticky = 1):
 
 Note: [`Python Script for Notepad++`](http://npppythonscript.sourceforge.net/download.shtml) Plugin is required.
 
-  1. Copy `AlignColumns.py` to `c:\path\to\npp\plugins\Config\PythonScript\scripts\`
+  1. Copy `AlignColumns.py` to `%APPDATA%\Notepad++\plugins\Config\PythonScript\scripts\` or `C:\path\to\npp\plugins\Config\PythonScript\scripts\` if you have `doLocalConf.xml` in `C:\path\to\npp\`
   2. In Notepad++ select the lines you want to align
   3. Restart Notepad++
   4. From top menu choose: `Plugins` -> `Python Script` -> `Scripts` -> `AlignColumns`
