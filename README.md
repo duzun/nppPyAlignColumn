@@ -65,3 +65,7 @@ Before assigning a shortcut you need to add this script to the menu:
 # ToDo:
   1. Add menu entries for each alignment mode
   2. Add more alignment modes
+
+#### P.S.
+
+  I've switched to **[Sublime Text](https://www.sublimetext.com/)**, which has a great plugin for this job - **[AlignTab](https://github.com/randy3k/AlignTab)**, thus I have no interest in improving this script any more!
